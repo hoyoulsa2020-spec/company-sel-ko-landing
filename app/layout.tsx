@@ -11,9 +11,6 @@ const noto = Noto_Sans_KR({
   display: "swap",
 });
 
-/** 카카오·메신저 크롤러는 외부 placeholder 이미지를 못 받는 경우가 많아 같은 도메인 정적 이미지 사용 */
-const ogImage = "/og.png";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "셀인코치 | 인테리어 시공 연결 서비스",
@@ -30,21 +27,12 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "셀인코치",
     locale: "ko_KR",
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: "셀인코치",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "셀인코치 | 인테리어 시공 연결 서비스",
     description:
       "소비자와 전문 시공업체를 연결하는 셀인코치. 웹에서 바로 가입하고 시작하세요.",
-    images: [ogImage],
   },
   robots: {
     index: true,
