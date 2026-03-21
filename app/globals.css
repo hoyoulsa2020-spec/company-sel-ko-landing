@@ -1,9 +1,21 @@
-* {
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background-color: rgba(79, 70, 229, 0.18);
+    color: rgb(15 23 42);
+  }
 }
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  color: #111;
-  background: #fafafa;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
