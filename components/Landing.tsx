@@ -7,13 +7,21 @@ import {
   CheckCircle2,
   ChevronRight,
   Hammer,
+  Layers,
+  Link2,
   MessageCircle,
   Smartphone,
   Sparkles,
   Users,
 } from "lucide-react";
 
+import { AppComingSoonSection } from "@/components/AppComingSoonSection";
+
 const CTA_URL = "https://sel-ko.co.kr";
+
+/** Pexels 원본 (Canva 편집 링크에 연결된 동일 영상) */
+const HERO_VIDEO_SRC =
+  "https://videos.pexels.com/video-files/8482292/8482292-hd_1920_1080_25fps.mp4";
 
 const fadeUp = {
   initial: { opacity: 0, y: 14 },
@@ -58,43 +66,48 @@ export function Landing() {
   return (
     <>
       <main className="pb-[calc(5.75rem+env(safe-area-inset-bottom))] sm:pb-[calc(5.25rem+env(safe-area-inset-bottom))]">
-        {/* Hero */}
-        <section className="relative overflow-hidden border-b border-slate-200/70 bg-slate-50">
-          {/* Background */}
-          <div
-            className="pointer-events-none absolute inset-0 bg-grid-fade bg-grid opacity-[0.65]"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-indigo-400/25 blur-3xl"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -right-20 top-32 h-64 w-64 rounded-full bg-violet-400/20 blur-3xl"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-200/80 to-transparent"
-            aria-hidden
-          />
+        {/* Hero — 배경 영상(Pexels) + 오버레이, 본문만 상대 z-index */}
+        <section
+          className="relative overflow-hidden border-b border-slate-800/50 bg-slate-950"
+          aria-label="메인 소개"
+        >
+          {/* 배경 영상: 섹션 전체 높이 덮음 → 버튼 줄 아래 찐 네이비 단색 띠 제거 */}
+          <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+            <video
+              className="h-full w-full object-cover object-top motion-reduce:hidden"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden
+            >
+              <source src={HERO_VIDEO_SRC} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 hidden bg-slate-900 motion-reduce:block" />
+            {/* 최초 영상 히어로와 동일한 어두운 오버레이 */}
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/65 to-slate-950/85" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-20%,rgba(79,70,229,0.12),transparent)]" />
+          </div>
 
-          <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 sm:pt-8">
-            {/* Brand row */}
+          <div className="relative z-10 mx-auto max-w-5xl px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8">
             <div className="mb-10 flex items-center justify-between gap-4 sm:mb-14">
               <div className="flex items-center gap-2.5">
                 <span
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-700 text-sm font-bold text-white shadow-md ring-1 ring-white/20"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white shadow-lg ring-1 ring-white/25"
                   aria-hidden
                 >
                   셀
                 </span>
-                <span className="text-[15px] font-bold tracking-tight text-slate-900">셀인코치</span>
+                <span className="text-[15px] font-bold tracking-tight text-white drop-shadow-sm">
+                  셀인코치
+                </span>
               </div>
               <a
                 href={CTA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-indigo-700 underline-offset-4 transition hover:text-indigo-800 hover:underline"
+                className="text-[15px] font-bold text-white underline-offset-[5px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] transition hover:underline sm:text-base"
               >
                 웹 가입
               </a>
@@ -103,45 +116,187 @@ export function Landing() {
             <div className="mx-auto max-w-3xl">
               <motion.div {...fadeUp}>
                 <div className="flex justify-center">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-3 py-1 text-xs font-medium text-indigo-800 shadow-sm ring-1 ring-slate-900/[0.04] backdrop-blur-sm">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white shadow-sm ring-1 ring-white/10 backdrop-blur-md">
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-300 opacity-60" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-200" />
                     </span>
-                    셀프인테리어 · 시공 매칭
+                    직접 연결 · 셀프인테리어
                   </span>
                 </div>
 
-                <h1 className="mt-6 text-balance text-center text-[1.7rem] font-bold leading-[1.25] tracking-tight text-slate-900 sm:text-[2.35rem] sm:leading-tight">
-                  믿을 수 있는 시공 연결,
+                <h1 className="mt-6 text-balance text-center text-[1.7rem] font-bold leading-[1.25] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:text-[2.35rem] sm:leading-tight">
+                  복잡한 단계를 줄이고,
                   <br />
-                  <span className="bg-gradient-to-r from-indigo-700 via-violet-700 to-indigo-700 bg-clip-text text-transparent">
-                    셀인코치
+                  시공을 더{" "}
+                  <span className="bg-gradient-to-r from-indigo-200 via-violet-200 to-indigo-200 bg-clip-text text-transparent">
+                    명확하게
                   </span>
-                  에서 시작하세요
                 </h1>
-                <p className="mx-auto mt-5 max-w-xl text-pretty text-center text-[15px] leading-relaxed text-slate-600 sm:text-lg">
-                  간편한 상담부터 업체 연결까지. 지금은 웹으로 빠르게 가입하고 이용할 수 있으며, 모바일 앱도
-                  곧 만나보실 수 있습니다.
+                <p className="mx-auto mt-5 max-w-xl text-pretty text-center text-[15px] leading-relaxed text-slate-200/95 sm:text-lg">
+                  셀인코치는 소비자와 시공업체를 직접 연결하는 구조로 설계되었습니다. 불필요한 중간 단계를
+                  줄이면, 공사 범위와 선택이 더 분명해지고 합리적인 판단을 돕습니다.
                 </p>
 
                 <div className="mt-9 flex flex-col gap-3 sm:mx-auto sm:max-w-lg sm:flex-row sm:justify-center sm:gap-4">
                   <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
-                    지금 가입하기
+                    sel-ko.co.kr에서 가입하기
                     <ArrowRight className="h-4 w-4 opacity-90" aria-hidden />
                   </a>
-                  <a href="#app-soon" className={btnSecondary}>
+                  <a
+                    href="#app-soon"
+                    className={`${btnSecondary} border-white/25 bg-white/95 text-slate-900 shadow-md ring-white/20 hover:bg-white`}
+                  >
                     앱 출시 예정 안내
                   </a>
                 </div>
 
-                <p className="mt-8 text-center text-xs text-slate-500">
-                  가입은{" "}
-                  <span className="font-medium text-slate-600">새 탭에서 열리며</span>, 별도 앱 설치 없이
+                <p className="mt-8 text-center text-xs text-slate-400">
+                  가입은 <span className="font-medium text-slate-300">새 탭에서 열리며</span>, 앱 설치 없이
                   시작할 수 있습니다.
                 </p>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* 구조 설명 */}
+        <section id="structure" className="relative border-b border-slate-200/70 bg-white py-16 sm:py-24">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <motion.div {...fadeUp}>
+              <SectionTitle
+                eyebrow="구조 이해하기"
+                title="왜 같은 공사인데 비용 차이가 날까요?"
+                description="인테리어는 여러 단계를 거치며 진행됩니다. 단계가 늘어날수록 각 구간에서 비용이 더해질 수 있어, 같은 범위라도 체감 비용이 달라질 수 있습니다."
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45 }}
+              className="mt-10 space-y-5 text-[15px] leading-relaxed text-slate-600 sm:text-base"
+            >
+              <p className="text-pretty">
+                상담·설계·견적·시공처럼 과정이 길어질수록, 정보와 비용이 단계마다 이어집니다. 중간 단계가
+                많을수록 전달 과정에서 추가 비용이 발생할 여지도 커질 수 있습니다.
+              </p>
+              <p className="text-pretty">
+                <strong className="font-semibold text-slate-800">셀인코치</strong>는 소비자와 시공업체를
+                직접 연결하는 구조를 지향합니다. 불필요한 단계를 줄이면 공사의 시작점이 분명해지고, 범위와
+                선택을 비교하기에도 수월해집니다.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 비교 카드 */}
+        <section className="relative border-b border-slate-200/70 bg-slate-50 py-16 sm:py-24">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <motion.div {...fadeUp}>
+              <h2 className="text-center text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+                구조를 나누어 보면 이해가 쉬워집니다
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 sm:text-base">
+                과장 없이, 흐름의 차이만 정리했습니다.
+              </p>
+            </motion.div>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-2">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-soft ring-1 ring-slate-900/[0.03] sm:p-8"
+              >
+                <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 ring-1 ring-slate-200/80">
+                    <Layers className="h-5 w-5" aria-hidden />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">기존 구조</p>
+                    <h3 className="text-lg font-bold text-slate-900">여러 단계를 거치는 경우</h3>
+                  </div>
+                </div>
+                <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]">
+                  <li className="flex gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" aria-hidden />
+                    여러 단계의 중간 과정을 거칠 수 있음
+                  </li>
+                  <li className="flex gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" aria-hidden />
+                    전달 과정에서 비용이 더해질 수 있음
+                  </li>
+                  <li className="flex gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" aria-hidden />
+                    실제 시공업체까지 단계적으로 이어짐
+                  </li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.06 }}
+                className="rounded-3xl border border-indigo-200/80 bg-gradient-to-b from-white to-indigo-50/40 p-6 shadow-card ring-1 ring-indigo-100/60 sm:p-8"
+              >
+                <div className="flex items-center gap-3 border-b border-indigo-100/80 pb-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white shadow-md ring-1 ring-white/15">
+                    <Link2 className="h-5 w-5" aria-hidden />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">셀인코치</p>
+                    <h3 className="text-lg font-bold text-slate-900">직접 연결 구조</h3>
+                  </div>
+                </div>
+                <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-700 sm:text-[15px]">
+                  <li className="flex gap-2.5">
+                    <CheckCircle2
+                      className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                      aria-hidden
+                      strokeWidth={2}
+                    />
+                    시공업체와 직접 연결되는 흐름
+                  </li>
+                  <li className="flex gap-2.5">
+                    <CheckCircle2
+                      className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                      aria-hidden
+                      strokeWidth={2}
+                    />
+                    단순한 구조로 과정을 정리
+                  </li>
+                  <li className="flex gap-2.5">
+                    <CheckCircle2
+                      className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                      aria-hidden
+                      strokeWidth={2}
+                    />
+                    공사 시작이 더 명확해지도록 설계
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+
+            {/* 핵심 문구 */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="mx-auto mt-12 max-w-2xl rounded-2xl border border-indigo-100 bg-white/90 px-5 py-6 text-center shadow-sm ring-1 ring-slate-900/[0.03] sm:px-8"
+            >
+              <p className="text-sm font-medium text-slate-800 sm:text-base">
+                불필요한 단계를 줄이면, 공사는 더 명확해집니다.
+              </p>
+              <p className="mt-2 text-sm text-slate-600 sm:text-[15px]">
+                복잡한 구조 대신, 직접 연결로 시작해 보세요.
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -152,31 +307,31 @@ export function Landing() {
             <motion.div {...fadeUp}>
               <SectionTitle
                 eyebrow="서비스 소개"
-                title="필요한 순간, 부담 없이 연결됩니다"
-                description="소비자와 시공업체 모두를 위한 경험을 설계했습니다."
+                title="직접 연결에 맞춘 이용 경험"
+                description="구조를 단순하게 만드는 방향으로 기능을 쌓았습니다."
               />
             </motion.div>
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
-                  icon: Hammer,
-                  title: "시공업체 연결",
-                  body: "검증된 업체와 매칭해 불필요한 비교 시간을 줄입니다.",
+                  icon: Link2,
+                  title: "직접 연결 구조",
+                  body: "소비자와 시공업체를 이어 주는 흐름에 초점을 둡니다.",
                 },
                 {
                   icon: MessageCircle,
-                  title: "간편한 상담 시작",
-                  body: "몇 가지 정보만으로 상담 흐름을 빠르게 시작할 수 있습니다.",
+                  title: "상담·연결",
+                  body: "필요한 정보를 바탕으로 상담과 연결을 이어 갑니다.",
                 },
                 {
                   icon: Smartphone,
-                  title: "모바일 이용",
-                  body: "이동 중에도 웹으로 주요 흐름을 이어갈 수 있습니다.",
+                  title: "웹으로 시작",
+                  body: "이동 중에도 웹으로 흐름을 이어 갈 수 있습니다.",
                 },
                 {
                   icon: Sparkles,
                   title: "앱 출시 예정",
-                  body: "더 편한 이용을 위해 네이티브 앱을 준비 중입니다.",
+                  body: "이후 네이티브 앱으로 더 편한 경험을 준비 중입니다.",
                 },
               ].map((item, i) => (
                 <motion.div
@@ -208,15 +363,24 @@ export function Landing() {
             <motion.div {...fadeUp}>
               <SectionTitle
                 eyebrow="고객"
-                title="인테리어, 시작이 어렵지 않도록"
-                description="상담부터 연결까지 한 흐름으로 안내합니다."
+                title="공사 결정을 더 분명하게"
+                description="무엇을 비교해야 할지, 어디서부터 시작할지 정리해 드립니다."
               />
             </motion.div>
             <ul className="mx-auto mt-12 max-w-2xl space-y-3">
               {[
-                { icon: MessageCircle, text: "상담 간편 — 필요한 내용만 정리해 빠르게 시작" },
-                { icon: Building2, text: "업체 연결 — 조건에 맞는 시공 파트너를 연결" },
-                { icon: CheckCircle2, text: "웹 가입 가능 — 별도 앱 없이도 가입·이용 가능" },
+                {
+                  icon: MessageCircle,
+                  text: "상담 흐름이 단순해져, 필요한 내용을 빠르게 정리할 수 있습니다.",
+                },
+                {
+                  icon: Building2,
+                  text: "조건에 맞는 시공업체와 연결되어, 직접 대화를 시작할 수 있습니다.",
+                },
+                {
+                  icon: CheckCircle2,
+                  text: "웹에서 가입·이용이 가능해, 별도 앱 없이도 시작할 수 있습니다.",
+                },
               ].map((row, i) => (
                 <motion.li
                   key={row.text}
@@ -244,15 +408,24 @@ export function Landing() {
             <motion.div {...fadeUp}>
               <SectionTitle
                 eyebrow="시공업체"
-                title="고객과의 만남을 더 가볍게"
-                description="참여 부담을 줄이고, 연결에 집중할 수 있도록 구성했습니다."
+                title="연결에 집중할 수 있도록"
+                description="참여 방식을 단순하게 두어, 문의와 소통에 더 쓸 시간을 남깁니다."
               />
             </motion.div>
             <ul className="mx-auto mt-12 max-w-2xl space-y-3">
               {[
-                { icon: Users, text: "고객 확보 — 상담·매칭 흐름을 통해 문의 기회를 확대" },
-                { icon: CheckCircle2, text: "간편 참여 — 웹 기반으로 빠르게 시작할 수 있습니다" },
-                { icon: Smartphone, text: "앱 대응 예정 — 이후 앱 환경에서도 운영을 이어갈 수 있도록 준비 중" },
+                {
+                  icon: Users,
+                  text: "상담·매칭 흐름을 통해 고객과 만나는 기회를 확대할 수 있습니다.",
+                },
+                {
+                  icon: CheckCircle2,
+                  text: "웹 기반으로 빠르게 참여를 시작할 수 있습니다.",
+                },
+                {
+                  icon: Smartphone,
+                  text: "이후 앱이 열리면 동일한 맥락으로 운영을 이어 갈 수 있도록 준비 중입니다.",
+                },
               ].map((row, i) => (
                 <motion.li
                   key={row.text}
@@ -278,7 +451,11 @@ export function Landing() {
         <section className="relative border-b border-slate-200/70 bg-slate-50 py-16 sm:py-24">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <motion.div {...fadeUp}>
-              <SectionTitle eyebrow="이용 방법" title="접속 → 가입 → 이용" />
+              <SectionTitle
+                eyebrow="이용 방법"
+                title="접속 → 가입 → 이용"
+                description="웹에서 계정을 만들고, 안내된 흐름대로 진행하면 됩니다."
+              />
             </motion.div>
 
             <div className="mx-auto mt-12 max-w-3xl">
@@ -322,38 +499,7 @@ export function Landing() {
           </div>
         </section>
 
-        {/* 앱 출시 */}
-        <section id="app-soon" className="relative border-b border-slate-200/70 bg-white py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            <motion.div
-              {...fadeUp}
-              className="relative overflow-hidden rounded-3xl border border-indigo-100/80 bg-gradient-to-br from-indigo-50/90 via-white to-violet-50/50 p-8 shadow-card ring-1 ring-indigo-100/60 sm:p-10"
-            >
-              <div
-                className="pointer-events-none absolute -right-16 top-0 h-40 w-40 rounded-full bg-indigo-400/20 blur-3xl"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-violet-400/15 blur-3xl"
-                aria-hidden
-              />
-
-              <div className="relative text-center">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/70 px-3 py-1 text-xs font-semibold text-indigo-900 shadow-sm ring-1 ring-slate-900/[0.04] backdrop-blur-sm">
-                  <Sparkles className="h-3.5 w-3.5 text-indigo-600" aria-hidden />
-                  Coming soon
-                </div>
-                <h2 className="mt-5 text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-                  곧 앱으로 만나요
-                </h2>
-                <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
-                  지금은 <strong className="font-semibold text-slate-900">웹에서 먼저</strong> 가입하고 이용해
-                  주세요. 앱이 출시되면 동일한 계정으로 더 편한 경험을 이어갈 수 있도록 준비하고 있습니다.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        <AppComingSoonSection />
 
         {/* 마지막 CTA */}
         <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 text-white sm:py-24">
@@ -377,10 +523,11 @@ export function Landing() {
             <motion.div {...fadeUp}>
               <p className="text-sm font-medium text-indigo-200/90">셀인코치</p>
               <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight sm:text-3xl">
-                지금 sel-ko.co.kr에서 가입하세요
+                구조를 이해했다면, 직접 연결로 시작해 보세요
               </h2>
               <p className="mt-4 text-pretty text-base text-slate-300 sm:text-lg">
-                클릭 한 번으로 시작할 수 있습니다. 새 탭에서 안전하게 열립니다.
+                sel-ko.co.kr에서 가입하면 웹에서 바로 상담·연결 흐름을 이용할 수 있습니다. 새 탭에서
+                안전하게 열립니다.
               </p>
               <a
                 href={CTA_URL}
@@ -388,7 +535,7 @@ export function Landing() {
                 rel="noopener noreferrer"
                 className="mt-10 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-white px-7 text-base font-semibold text-slate-900 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_12px_40px_rgba(0,0,0,0.35)] ring-1 ring-white/30 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-px"
               >
-                웹사이트로 이동
+                sel-ko.co.kr 가입하기
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </a>
             </motion.div>
@@ -409,7 +556,7 @@ export function Landing() {
                 <span className="text-sm font-bold tracking-tight text-slate-900">셀인코치</span>
               </div>
               <p className="max-w-sm text-xs leading-relaxed text-slate-500">
-                셀프인테리어 소비자와 시공업체를 연결하는 서비스입니다.
+                소비자와 시공업체를 직접 연결하는 셀프인테리어 플랫폼입니다.
               </p>
             </div>
           </div>
@@ -425,8 +572,9 @@ export function Landing() {
               셀
             </div>
             <p className="mt-2 text-center text-sm font-medium text-slate-800 sm:mt-0 sm:text-left">
-              <span className="block sm:inline">웹에서 빠르게 </span>
-              <span className="font-semibold text-slate-900">가입</span>하고 시작해 보세요
+              <span className="block text-slate-600 sm:inline">단순한 구조로 </span>
+              <span className="font-semibold text-slate-900">직접 연결</span>
+              <span className="block sm:inline">을 시작해 보세요</span>
             </p>
           </div>
           <div className="p-3 pt-2 sm:flex sm:shrink-0 sm:p-2">
@@ -436,7 +584,7 @@ export function Landing() {
               rel="noopener noreferrer"
               className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-indigo-600 to-indigo-700 px-5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(79,70,229,0.35)] ring-1 ring-indigo-500/25 transition hover:from-indigo-500 hover:to-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:w-auto active:translate-y-px"
             >
-              가입하러 가기
+              가입하기
               <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
           </div>
