@@ -11,8 +11,8 @@ const noto = Noto_Sans_KR({
   display: "swap",
 });
 
-const ogImage =
-  "https://placehold.co/1200x630/312e81/e0e7ff/png?text=%EC%85%80%EC%9D%B8%EC%BD%94%EC%B9%98";
+/** 카카오·메신저 크롤러는 외부 placeholder 이미지를 못 받는 경우가 많아 같은 도메인 정적 이미지 사용 */
+const ogImage = "/og.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
