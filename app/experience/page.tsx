@@ -90,7 +90,7 @@ function SectionHeading({
 export default function ExperiencePage() {
   return (
     <main className="bg-white">
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0f172a_0%,#1e293b_45%,#312e81_100%)] px-4 pb-24 pt-20 text-white sm:pb-28 sm:pt-24">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0f172a_0%,#1e293b_45%,#312e81_100%)] px-4 pb-20 pt-8 text-white sm:pb-24 sm:pt-10">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(99,102,241,0.35),transparent)]"
           aria-hidden
@@ -102,16 +102,16 @@ export default function ExperiencePage() {
             </Link>
           </div>
 
-          <div className="mx-auto mt-14 max-w-3xl text-center sm:mt-20">
+          <div className="mx-auto mt-8 max-w-3xl text-center sm:mt-10">
             <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold tracking-[0.18em] text-indigo-100 backdrop-blur">
               무료 상담 랜딩
             </span>
-            <h1 className="mt-6 text-balance text-[2.2rem] font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="mt-5 text-balance text-[2.05rem] font-bold leading-[1.08] tracking-tight sm:mt-6 sm:text-5xl md:text-6xl">
               현장 안 가도
               <br />
               인테리어 끝납니다
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-slate-200 sm:text-xl">
+            <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-slate-200 sm:mt-6 sm:text-xl">
               견적, 공정, 시공관리까지 셀코 하나로 해결.
               <br className="hidden sm:block" />
               복잡한 확인 대신, 지금 바로 상담부터 시작하세요.
@@ -120,13 +120,13 @@ export default function ExperiencePage() {
               href={KAKAO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-flex h-14 min-w-[220px] items-center justify-center gap-2 rounded-2xl bg-[#FEE500] px-8 text-base font-bold text-slate-900 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition hover:scale-[1.02] hover:bg-[#ffe75c]"
+              className="mt-8 inline-flex h-14 min-w-[220px] items-center justify-center gap-2 rounded-2xl bg-[#FEE500] px-8 text-base font-bold text-slate-900 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition hover:scale-[1.02] hover:bg-[#ffe75c] sm:mt-10"
             >
               무료 상담 받기
               <ArrowRight className="h-5 w-5" aria-hidden />
             </a>
 
-            <div className="mt-12 flex justify-center">
+            <div className="mt-10 flex justify-center sm:mt-12">
               <div className="w-full max-w-[22rem] rounded-[2.5rem] bg-slate-950 p-3 shadow-[0_28px_90px_rgba(0,0,0,0.38)] ring-1 ring-white/10">
                 <div className="rounded-[2rem] bg-[linear-gradient(180deg,#101828_0%,#162033_100%)] p-4">
                   <div className="mx-auto mb-4 h-1.5 w-20 rounded-full bg-white/20" />
