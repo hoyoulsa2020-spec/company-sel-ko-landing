@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import { KakaoChatButton } from "@/components/KakaoChatButton";
 import { SITE_URL } from "@/lib/site";
 
 const noto = Noto_Sans_KR({
@@ -57,7 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="naver-site-verification" content="a22b2944c2ffd977efa414e0d11244d253a0f624" />
       </head>
-      <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">{children}</body>
+      <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">
+        {children}
+        <KakaoChatButton />
+      </body>
     </html>
   );
 }

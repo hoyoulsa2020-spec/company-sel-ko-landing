@@ -1,19 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Building2,
   CheckCircle2,
   ChevronRight,
-  Hammer,
   Layers,
   Link2,
   MessageCircle,
   Smartphone,
   Sparkles,
   Users,
+  X,
 } from "lucide-react";
+
+import Link from "next/link";
 
 import { AppComingSoonSection } from "@/components/AppComingSoonSection";
 
@@ -62,10 +65,39 @@ const btnPrimary =
 const btnSecondary =
   "inline-flex h-12 items-center justify-center rounded-2xl border border-slate-200/90 bg-white/90 px-6 text-base font-semibold text-slate-800 shadow-sm ring-1 ring-slate-900/[0.04] backdrop-blur-sm transition hover:border-slate-300 hover:bg-white hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400 active:translate-y-px";
 
+const STICKY_CTA_DISMISS_KEY = "selko-sticky-cta-dismissed";
+
 export function Landing() {
+  const [showStickyCta, setShowStickyCta] = useState(true);
+
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined" && localStorage.getItem(STICKY_CTA_DISMISS_KEY) === "1") {
+        setShowStickyCta(false);
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const dismissStickyCta = () => {
+    setShowStickyCta(false);
+    try {
+      localStorage.setItem(STICKY_CTA_DISMISS_KEY, "1");
+    } catch {
+      /* ignore */
+    }
+  };
+
   return (
     <>
-      <main className="pb-[calc(5.75rem+env(safe-area-inset-bottom))] sm:pb-[calc(5.25rem+env(safe-area-inset-bottom))]">
+      <main
+        className={
+          showStickyCta
+            ? "pb-[calc(5.75rem+env(safe-area-inset-bottom))] sm:pb-[calc(5.25rem+env(safe-area-inset-bottom))]"
+            : "pb-0"
+        }
+      >
         {/* Hero — 배경 영상(Pexels) + 오버레이, 본문만 상대 z-index */}
         <section
           className="relative overflow-hidden border-b border-slate-800/50 bg-slate-950"
@@ -91,23 +123,42 @@ export function Landing() {
           </div>
 
           <div className="relative z-10 mx-auto max-w-5xl px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8">
-            <div className="mb-10 flex items-center justify-between gap-4 sm:mb-14">
-              <div className="flex items-center gap-2.5">
-                <span
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white shadow-lg ring-1 ring-white/25"
-                  aria-hidden
+            <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+              <div className="flex items-center justify-between gap-4 sm:justify-start sm:gap-0">
+                <div className="flex items-center gap-2.5">
+                  <span
+                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white shadow-lg ring-1 ring-white/25"
+                    aria-hidden
+                  >
+                    셀
+                  </span>
+                  <span className="text-[15px] font-bold tracking-tight text-white drop-shadow-sm">
+                    셀인코치
+                  </span>
+                </div>
+                <a
+                  href={CTA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[15px] font-bold text-white underline-offset-[5px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] transition hover:underline sm:hidden sm:text-base"
                 >
-                  셀
-                </span>
-                <span className="text-[15px] font-bold tracking-tight text-white drop-shadow-sm">
-                  셀인코치
-                </span>
+                  웹 가입
+                </a>
+              </div>
+              <div className="flex w-full justify-center sm:flex-1 sm:px-2">
+                <Link
+                  href="/experience"
+                  className="inline-flex h-11 w-full max-w-sm items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/15 px-5 text-sm font-bold text-white shadow-[0_8px_32px_rgba(0,0,0,0.25)] ring-1 ring-white/20 backdrop-blur-md transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-12 sm:max-w-none sm:shrink-0 sm:px-8 sm:text-[15px]"
+                >
+                  셀인관리APP 알아보기
+                  <ArrowRight className="h-4 w-4 opacity-90" aria-hidden />
+                </Link>
               </div>
               <a
                 href={CTA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[15px] font-bold text-white underline-offset-[5px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] transition hover:underline sm:text-base"
+                className="hidden text-[15px] font-bold text-white underline-offset-[5px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] transition hover:underline sm:block sm:shrink-0 sm:text-base"
               >
                 웹 가입
               </a>
@@ -558,38 +609,54 @@ export function Landing() {
               <p className="max-w-sm text-xs leading-relaxed text-slate-500">
                 소비자와 시공업체를 직접 연결하는 셀프인테리어 플랫폼입니다.
               </p>
+              <Link
+                href="/experience"
+                className="text-sm font-semibold text-indigo-600 underline-offset-4 transition hover:text-indigo-800 hover:underline"
+              >
+                기능·사용 경험 소개
+              </Link>
             </div>
           </div>
         </footer>
       </main>
 
-      {/* Sticky CTA */}
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:p-4">
-        <div className="pointer-events-auto w-full max-w-lg overflow-hidden rounded-2xl border border-white/70 bg-white/95 shadow-dock ring-1 ring-slate-900/[0.06] backdrop-blur-xl sm:flex sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3">
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-indigo-200/80 to-transparent sm:hidden" />
-          <div className="px-4 pt-3 sm:flex sm:items-center sm:gap-3 sm:px-0 sm:pt-0">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-700 text-xs font-bold text-white shadow-sm sm:mt-0">
-              셀
-            </div>
-            <p className="mt-2 text-center text-sm font-medium text-slate-800 sm:mt-0 sm:text-left">
-              <span className="block text-slate-600 sm:inline">단순한 구조로 </span>
-              <span className="font-semibold text-slate-900">직접 연결</span>
-              <span className="block sm:inline">을 시작해 보세요</span>
-            </p>
-          </div>
-          <div className="p-3 pt-2 sm:flex sm:shrink-0 sm:p-2">
-            <a
-              href={CTA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-indigo-600 to-indigo-700 px-5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(79,70,229,0.35)] ring-1 ring-indigo-500/25 transition hover:from-indigo-500 hover:to-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:w-auto active:translate-y-px"
+      {/* Sticky CTA — 닫기 시 숨김(로컬에 기억) */}
+      {showStickyCta ? (
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:p-4">
+          <div className="pointer-events-auto relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/70 bg-white/95 shadow-dock ring-1 ring-slate-900/[0.06] backdrop-blur-xl sm:flex sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3">
+            <button
+              type="button"
+              onClick={dismissStickyCta}
+              className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:right-3 sm:top-1/2 sm:-translate-y-1/2"
+              aria-label="하단 배너 닫기"
             >
-              가입하기
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </a>
+              <X className="h-4 w-4" aria-hidden />
+            </button>
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-indigo-200/80 to-transparent sm:hidden" />
+            <div className="px-4 pt-3 pr-12 sm:flex sm:items-center sm:gap-3 sm:px-0 sm:pr-10 sm:pt-0">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-700 text-xs font-bold text-white shadow-sm sm:mt-0">
+                셀
+              </div>
+              <p className="mt-2 text-center text-sm font-medium text-slate-800 sm:mt-0 sm:text-left">
+                <span className="block text-slate-600 sm:inline">단순한 구조로 </span>
+                <span className="font-semibold text-slate-900">직접 연결</span>
+                <span className="block sm:inline">을 시작해 보세요</span>
+              </p>
+            </div>
+            <div className="p-3 pt-2 sm:flex sm:shrink-0 sm:p-2">
+              <a
+                href={CTA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-indigo-600 to-indigo-700 px-5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(79,70,229,0.35)] ring-1 ring-indigo-500/25 transition hover:from-indigo-500 hover:to-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:w-auto active:translate-y-px"
+              >
+                가입하기
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
 }
