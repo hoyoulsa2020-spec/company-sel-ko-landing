@@ -23,14 +23,66 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%)",
+          justifyContent: "flex-start",
+          paddingTop: 120,
+          background: "linear-gradient(135deg, #1a2336 0%, #111827 100%)",
           color: "white",
         }}
       >
-        <div style={{ fontSize: 96, fontWeight: 700, fontFamily: "Noto Sans KR" }}>셀인코치</div>
-        <div style={{ fontSize: 32, marginTop: 28, opacity: 0.92, fontFamily: "Noto Sans KR" }}>
-          인테리어 시공 연결 서비스
+        <div
+          style={{
+            fontSize: 76,
+            fontWeight: 700,
+            fontFamily: "Noto Sans KR",
+            letterSpacing: "-0.04em",
+          }}
+        >
+          셀코
+        </div>
+        <div
+          style={{
+            marginTop: 32,
+            height: 68,
+            width: 68,
+            borderRadius: 20,
+            background: "#ffffff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 12px 40px rgba(15, 23, 42, 0.24)",
+          }}
+        >
+          <div
+            style={{
+              height: 30,
+              width: 30,
+              borderRadius: 10,
+              background: "#4f46e5",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                height: 10,
+                width: 10,
+                borderRadius: 9999,
+                background: "#ffffff",
+              }}
+            />
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: 20,
+            marginTop: 20,
+            opacity: 0.82,
+            fontFamily: "Noto Sans KR",
+            letterSpacing: "-0.02em",
+          }}
+        >
+          셀프 리테리어 코치
         </div>
       </div>
     ),
