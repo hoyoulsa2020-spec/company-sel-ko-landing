@@ -609,12 +609,23 @@ export function Landing() {
               <p className="max-w-sm text-xs leading-relaxed text-slate-500">
                 소비자와 시공업체를 직접 연결하는 셀프인테리어 플랫폼입니다.
               </p>
-              <Link
-                href="/experience"
-                className="text-sm font-semibold text-indigo-600 underline-offset-4 transition hover:text-indigo-800 hover:underline"
-              >
-                기능·사용 경험 소개
-              </Link>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                <Link
+                  href="/experience"
+                  className="text-sm font-semibold text-indigo-600 underline-offset-4 transition hover:text-indigo-800 hover:underline"
+                >
+                  기능·사용 경험 소개
+                </Link>
+                <span className="hidden text-slate-300 sm:inline" aria-hidden>
+                  |
+                </span>
+                <Link
+                  href="/privacy"
+                  className="text-sm font-semibold text-slate-600 underline-offset-4 transition hover:text-indigo-700 hover:underline"
+                >
+                  개인정보처리방침
+                </Link>
+              </div>
             </div>
           </div>
         </footer>
