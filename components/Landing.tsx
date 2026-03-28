@@ -150,7 +150,7 @@ export function Landing() {
                   href="/experience"
                   className="inline-flex h-11 w-full max-w-sm items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/15 px-5 text-sm font-bold text-white shadow-[0_8px_32px_rgba(0,0,0,0.25)] ring-1 ring-white/20 backdrop-blur-md transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-12 sm:max-w-none sm:shrink-0 sm:px-8 sm:text-[15px]"
                 >
-                  셀인관리APP 알아보기
+                  셀코APP 알아보기
                   <ArrowRight className="h-4 w-4 opacity-90" aria-hidden />
                 </Link>
               </div>
