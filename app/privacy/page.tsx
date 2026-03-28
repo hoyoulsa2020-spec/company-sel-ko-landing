@@ -135,7 +135,7 @@ export default function PrivacyPage() {
               <span className="text-sm font-bold tracking-tight text-slate-900">셀코</span>
             </div>
             <p className="max-w-sm text-xs leading-relaxed text-slate-500">
-              소비자와 시공업체를 직접 연결하는 셀프인테리어 플랫폼입니다.
+              소비자와 시공업체를 직접 연결하는 셀코 플랫폼입니다.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm">
               <Link

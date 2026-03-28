@@ -172,7 +172,7 @@ export function Landing() {
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-300 opacity-60" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-200" />
                     </span>
-                    직접 연결 · 셀프인테리어
+                    직접 연결 · 셀코
                   </span>
                 </div>
 
@@ -607,7 +607,7 @@ export function Landing() {
                 <span className="text-sm font-bold tracking-tight text-slate-900">셀코</span>
               </div>
               <p className="max-w-sm text-xs leading-relaxed text-slate-500">
-                소비자와 시공업체를 직접 연결하는 셀프인테리어 플랫폼입니다.
+                소비자와 시공업체를 직접 연결하는 셀코 플랫폼입니다.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
                 <Link

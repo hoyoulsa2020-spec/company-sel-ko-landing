@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "셀코",
-    description: "셀코 - 셀프인테리어 소비자 - 공정별 전문시공업체 중개 플랫폼",
+    description: "셀코 - 소비자 - 공정별 전문시공업체 중개 플랫폼",
     type: "website",
     url: SITE_URL,
     siteName: "셀코",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "셀코",
-    description: "셀코 - 셀프인테리어 소비자 - 공정별 전문시공업체 중개 플랫폼",
+    description: "셀코 - 소비자 - 공정별 전문시공업체 중개 플랫폼",
     images: ["/opengraph-image"],
   },
   robots: {

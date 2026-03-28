@@ -169,7 +169,7 @@ export function ExperienceLanding() {
           <div className="mx-auto max-w-5xl">
             <motion.div {...fade} className="text-center">
               <h2 className="text-balance text-[1.75rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
-                셀프 인테리어,
+                셀코,
                 <br className="sm:hidden" /> 이제 불안하지 않습니다
               </h2>
             </motion.div>

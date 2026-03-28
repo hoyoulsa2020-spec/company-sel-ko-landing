@@ -73,17 +73,6 @@ export default async function Image() {
             />
           </div>
         </div>
-        <div
-          style={{
-            fontSize: 20,
-            marginTop: 20,
-            opacity: 0.82,
-            fontFamily: "Noto Sans KR",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          셀프 리테리어 코치
-        </div>
       </div>
     ),
     {
