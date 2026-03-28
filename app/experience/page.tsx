@@ -18,7 +18,7 @@ import { SITE_URL } from "@/lib/site";
 const KAKAO_URL = "https://open.kakao.com/o/sKQBlymi";
 
 export const metadata: Metadata = {
-  title: "셀인코치 | 무료 상담 랜딩",
+  title: "셀코 | 무료 상담 랜딩",
   description:
     "현장 안 가도 인테리어 끝납니다. 견적, 공정, 시공관리까지 셀코 하나로 해결하세요.",
   alternates: { canonical: "/experience" },
@@ -98,7 +98,7 @@ export default function ExperiencePage() {
         <div className="relative mx-auto max-w-6xl">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-sm font-semibold text-white/90 transition hover:text-white">
-              ← 셀인코치
+              ← 셀코
             </Link>
           </div>
 
@@ -136,7 +136,7 @@ export default function ExperiencePage() {
                   </div>
 
                   <div className="mt-5 text-center">
-                    <p className="text-2xl font-bold tracking-tight text-white">셀인코치</p>
+                    <p className="text-2xl font-bold tracking-tight text-white">셀코</p>
                     <p className="mt-1 text-xs text-slate-400">공정 자동 알림 서비스</p>
                   </div>
 
@@ -159,7 +159,7 @@ export default function ExperiencePage() {
                             )}
                           </div>
                           <div className="min-w-0">
-                            <p className="text-[11px] font-bold tracking-[0.08em] text-slate-700">띵동 - 셀인코치</p>
+                            <p className="text-[11px] font-bold tracking-[0.08em] text-slate-700">띵동 - 셀코</p>
                             <p className="mt-1 text-sm font-semibold leading-relaxed">{item}</p>
                           </div>
                         </div>
@@ -182,7 +182,7 @@ export default function ExperiencePage() {
                   </div>
 
                   <p className="mt-5 text-pretty text-center text-sm leading-relaxed text-slate-200">
-                    셀인코치 고객님이 인테리어 공정 시
+                    셀코 고객님이 인테리어 공정 시
                     <br />
                     매일 자동으로 받게 될 알림 서비스입니다.
                   </p>
@@ -350,7 +350,7 @@ export default function ExperiencePage() {
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             eyebrow="For Partners"
-            title="전문시공업체 사장님도 셀인코치 하나로 더 편해집니다"
+            title="전문시공업체 사장님도 셀코 하나로 더 편해집니다"
             description="영업에 쏟던 시간을 줄이고, 현장에만 더 편하게 집중할 수 있습니다."
           />
           <div className="mt-14 grid gap-4 sm:grid-cols-2">
@@ -372,7 +372,7 @@ export default function ExperiencePage() {
           </div>
           <div className="mt-8 rounded-[2rem] bg-slate-900 px-6 py-8 text-center text-white shadow-[0_18px_48px_rgba(15,23,42,0.16)] sm:px-8">
             <p className="text-xl font-bold leading-relaxed tracking-tight sm:text-2xl">
-              이제 편하게 셀인코치 하나로
+              이제 편하게 셀코 하나로
               <br className="sm:hidden" /> 현장에만 편하게 집중하세요
             </p>
           </div>

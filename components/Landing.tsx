@@ -133,7 +133,7 @@ export function Landing() {
                     셀
                   </span>
                   <span className="text-[15px] font-bold tracking-tight text-white drop-shadow-sm">
-                    셀인코치
+                    셀코
                   </span>
                 </div>
                 <a
@@ -185,7 +185,7 @@ export function Landing() {
                   </span>
                 </h1>
                 <p className="mx-auto mt-5 max-w-xl text-pretty text-center text-[15px] leading-relaxed text-slate-200/95 sm:text-lg">
-                  셀인코치는 소비자와 시공업체를 직접 연결하는 구조로 설계되었습니다. 불필요한 중간 단계를
+                  셀코는 소비자와 시공업체를 직접 연결하는 구조로 설계되었습니다. 불필요한 중간 단계를
                   줄이면, 공사 범위와 선택이 더 분명해지고 합리적인 판단을 돕습니다.
                 </p>
 
@@ -235,7 +235,7 @@ export function Landing() {
                 많을수록 전달 과정에서 추가 비용이 발생할 여지도 커질 수 있습니다.
               </p>
               <p className="text-pretty">
-                <strong className="font-semibold text-slate-800">셀인코치</strong>는 소비자와 시공업체를
+                <strong className="font-semibold text-slate-800">셀코</strong>는 소비자와 시공업체를
                 직접 연결하는 구조를 지향합니다. 불필요한 단계를 줄이면 공사의 시작점이 분명해지고, 범위와
                 선택을 비교하기에도 수월해집니다.
               </p>
@@ -300,7 +300,7 @@ export function Landing() {
                     <Link2 className="h-5 w-5" aria-hidden />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">셀인코치</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">셀코</p>
                     <h3 className="text-lg font-bold text-slate-900">직접 연결 구조</h3>
                   </div>
                 </div>
@@ -516,7 +516,7 @@ export function Landing() {
                 aria-label="이용 방법 3단계"
               >
                 {[
-                  { step: "1", title: "접속", desc: "웹으로 셀인코치에 들어옵니다." },
+                  { step: "1", title: "접속", desc: "웹으로 셀코에 들어옵니다." },
                   { step: "2", title: "가입", desc: "간단한 정보로 계정을 만듭니다." },
                   { step: "3", title: "이용", desc: "상담·연결 흐름에 맞춰 진행합니다." },
                 ].map((s, i) => (
@@ -572,7 +572,7 @@ export function Landing() {
 
           <div className="relative mx-auto max-w-2xl px-4 text-center sm:px-6">
             <motion.div {...fadeUp}>
-              <p className="text-sm font-medium text-indigo-200/90">셀인코치</p>
+              <p className="text-sm font-medium text-indigo-200/90">셀코</p>
               <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight sm:text-3xl">
                 구조를 이해했다면, 직접 연결로 시작해 보세요
               </h2>
@@ -604,7 +604,7 @@ export function Landing() {
                 >
                   셀
                 </span>
-                <span className="text-sm font-bold tracking-tight text-slate-900">셀인코치</span>
+                <span className="text-sm font-bold tracking-tight text-slate-900">셀코</span>
               </div>
               <p className="max-w-sm text-xs leading-relaxed text-slate-500">
                 소비자와 시공업체를 직접 연결하는 셀프인테리어 플랫폼입니다.

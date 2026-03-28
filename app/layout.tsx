@@ -13,32 +13,32 @@ const noto = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "셀인코치 | 인테리어 시공 연결 서비스",
+  title: "셀코 | 인테리어 시공 연결 서비스",
   description:
-    "소비자와 전문 시공업체를 연결하는 셀인코치. 웹에서 바로 가입하고 시작하세요.",
+    "소비자와 전문 시공업체를 연결하는 셀코. 웹에서 바로 가입하고 시작하세요.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "셀인코치",
-    description: "셀인코치 - 셀프인테리어 소비자 - 공정별 전문시공업체 중개 플랫폼",
+    title: "셀코",
+    description: "셀코 - 셀프인테리어 소비자 - 공정별 전문시공업체 중개 플랫폼",
     type: "website",
     url: SITE_URL,
-    siteName: "셀인코치",
+    siteName: "셀코",
     locale: "ko_KR",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "셀인코치",
+        alt: "셀코",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "셀인코치",
-    description: "셀인코치 - 셀프인테리어 소비자 - 공정별 전문시공업체 중개 플랫폼",
+    title: "셀코",
+    description: "셀코 - 셀프인테리어 소비자 - 공정별 전문시공업체 중개 플랫폼",
     images: ["/opengraph-image"],
   },
   robots: {

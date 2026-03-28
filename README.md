@@ -1,6 +1,6 @@
 # company.sel-ko.co.kr — 회사 소개 랜딩
 
-`self_coach_app`(셀인코치 앱)과 **별도 폴더 / 별도 Git** 입니다.
+`self_coach_app`(셀코 앱)과 **별도 폴더 / 별도 Git** 입니다.
 
 ## 순서 (GitHub → Vercel)
 

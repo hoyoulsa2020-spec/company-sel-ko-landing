@@ -38,7 +38,7 @@ export function ExperienceLanding() {
             href="/"
             className="shrink-0 text-sm font-bold tracking-tight text-white transition hover:text-indigo-200"
           >
-            ← 셀인코치
+            ← 셀코
           </Link>
           <a
             href={CTA_URL}
@@ -72,7 +72,7 @@ export function ExperienceLanding() {
                 이렇게까지 편해집니다
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg font-medium leading-relaxed text-slate-200 sm:text-xl sm:leading-relaxed">
-                복잡한 과정 없이 셀인코치 하나로 시작부터 완료까지
+                복잡한 과정 없이 셀코 하나로 시작부터 완료까지
               </p>
               <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-slate-400 sm:text-lg">
                 설명할 필요 없이, 시스템이 알아서 움직입니다
@@ -321,7 +321,7 @@ export function ExperienceLanding() {
             <Link href="/" className="font-semibold text-slate-800 transition hover:text-indigo-600">
               회사 소개 랜딩
             </Link>
-            <p>© 셀인코치</p>
+            <p>© 셀코</p>
           </div>
         </footer>
       </main>

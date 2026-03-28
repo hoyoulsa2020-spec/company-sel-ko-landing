@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  // 루트 layout title(셀인코치)과 합쳐지지 않도록 전체 타이틀을 고정
+  // 루트 layout title(셀코)과 합쳐지지 않도록 전체 타이틀을 고정
   title: { absolute: "개인정보처리방침 | 셀코" },
   description:
     "셀코 개인정보처리방침. 수집 항목, 이용 목적, 보관 기간, 제3자 제공, 이용자 권리 및 문의처 안내.",
