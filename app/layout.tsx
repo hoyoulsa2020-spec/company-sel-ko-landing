@@ -13,7 +13,7 @@ const noto = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "셀코 | 인테리어시공 부분 집수리 전문자 <->소비자 연결 플랫폼",
+  title: "셀코 | 인테리어시공 부분 집수리 전문자 ↔ 소비자 연결 플랫폼",
   description:
     "소비자와 전문 시공업체를 연결하는 셀코. 웹에서 바로 가입하고 시작하세요.",
   alternates: {
